@@ -22,6 +22,8 @@
 *  Cheatsheet by @moshhamedani: https://codewithmosh.lpages.co/python-cheat-sheet/
 *   Python for Data Science: https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PythonForDataScience.pdf
 *   Real Python: https://static.realpython.com/python_cheat_sheet_v1.pdf
-*   Programming with Mosh: https://www.youtube.com/watch?v=_uQrJ0TkZlc&feature=youtu.be
-*   freeCodeCamp: https://www.youtube.com/watch?v=rfscVS0vtbw
+*   Programming with Mosh Python Tutorial - Python for Beginners [Full Course] 6 hours: https://www.youtube.com/watch?v=_uQrJ0TkZlc&feature=youtu.be
+*   freeCodeCamp Полный курс для начинающих 4 hours: https://www.youtube.com/watch?v=rfscVS0vtbw
 *   TechWorld with Nana: https://www.youtube.com/watch?v=t8pPdKYpowI
+*   Comprehensive Python Cheatsheet - https://github.com/gto76/python-cheatsheet
+*    Полный курс для начинающих -
