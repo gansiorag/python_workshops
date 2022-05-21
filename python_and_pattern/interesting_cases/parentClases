@@ -1,0 +1,30 @@
+'''
+ This module make interesting cases of parents
+    
+Athor: Gansior Alexander, gansior@gansior.ru, +79173383804
+Starting 2022/04/07
+Ending 2022//
+    
+'''
+class A:
+    def __init__(self, value):
+        print("A::__init__")
+        self.value = value
+
+
+class B:
+    def __init__(self, name):
+        print("B::__init__")
+        self.name = name
+
+
+class C(A, B):
+    def __init__(self, name, value):
+        super().__init__(value)
+        super(A, self).__init__(name)
+
+
+if __name__ == '__main__':
+    print(C.__mro__)
+    t = C('Ogoo', 0)
+    print(t.name)
