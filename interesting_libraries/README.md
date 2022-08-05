@@ -12,3 +12,12 @@ Here summared libraries which are interesting for me.
  >If you ever had to extract data from social sites like Twitter, you know that you won’t only find plain text but also emojis that contain useful information. The problem is that we’d probably lose the emojis when extracting the tweet. For example, if someone tweets “Happy birthday! ❤️🎁“ and you extract that tweet, you’d miss the information inside the heart and gift emojis.
 * PyForest: Import 40 python libraries with 1 line of code (good for personal projects)
  >How many times have you tried to use a method or function from a Python library just to realize you haven’t imported it yet? That used to happen to me very often, but now I sometimes use a library called PyForest that imports well-known Python libraries used for data analysis with just one line of code.
+* Collections
+* Itertools
+* Bisect
+* Heapq
+* shutil
+* picle
+* algorithms
+* wget
+* 
