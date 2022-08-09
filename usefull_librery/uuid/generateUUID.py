@@ -32,41 +32,16 @@ The UUID as a 16-byte string (with time_low, time_mid, and time_hi_version in li
 UUID.fields
 A tuple of the six integer fields of the UUID, which are also available as six individual attributes and two derived attributes:
 
-Field
+    Field            |         Meaning
 
-Meaning
-
-time_low
-
-the first 32 bits of the UUID
-
-time_mid
-
-the next 16 bits of the UUID
-
-time_hi_version
-
-the next 16 bits of the UUID
-
-clock_seq_hi_variant
-
-the next 8 bits of the UUID
-
-clock_seq_low
-
-the next 8 bits of the UUID
-
-node
-
-the last 48 bits of the UUID
-
-time
-
-the 60-bit timestamp
-
-clock_seq
-
-the 14-bit sequence number
+time_low             | the first 32 bits of the UUID
+time_mid             | the next 16 bits of the UUID
+time_hi_version      | the next 16 bits of the UUID
+clock_seq_hi_variant | the next 8 bits of the UUID
+clock_seq_low        | the next 8 bits of the UUID
+node                 | the last 48 bits of the UUID
+time                 | the 60-bit timestamp
+clock_seq            | the 14-bit sequence number
 
 UUID.hex
 The UUID as a 32-character lowercase hexadecimal string.
@@ -78,34 +53,48 @@ UUID.urn
 The UUID as a URN as specified in RFC 4122.
 
 UUID.variant
-The UUID variant, which determines the internal layout of the UUID. This will be one of the constants RESERVED_NCS, RFC_4122, RESERVED_MICROSOFT, or RESERVED_FUTURE.
+The UUID variant, which determines the internal layout of the UUID. This will be one of the 
+constants RESERVED_NCS, RFC_4122, RESERVED_MICROSOFT, or RESERVED_FUTURE.
 
 UUID.version
 The UUID version number (1 through 5, meaningful only when the variant is RFC_4122).
 
 UUID.is_safe
-An enumeration of SafeUUID which indicates whether the platform generated the UUID in a multiprocessing-safe way.
+An enumeration of SafeUUID which indicates whether the platform generated the UUID in a 
+multiprocessing-safe way.
 
 New in version 3.7.
 
 The uuid module defines the following functions:
 
 uuid.getnode()
-Get the hardware address as a 48-bit positive integer. The first time this runs, it may launch a separate program, which could be quite slow. If all attempts to obtain the hardware address fail, we choose a random 48-bit number with the multicast bit (least significant bit of the first octet) set to 1 as recommended in RFC 4122. “Hardware address” means the MAC address of a network interface. On a machine with multiple network interfaces, universally administered MAC addresses (i.e. where the second least significant bit of the first octet is unset) will be preferred over locally administered MAC addresses, but with no other ordering guarantees.
+Get the hardware address as a 48-bit positive integer. The first time this runs, it may 
+launch a separate program, which could be quite slow. If all attempts to obtain the hardware address 
+fail, we choose a random 48-bit number with the multicast bit (least significant bit of the first octet) 
+set to 1 as recommended in RFC 4122. “Hardware address” means the MAC address of a network interface.
+On a machine with multiple network interfaces, universally administered MAC addresses (i.e. where the 
+second least significant bit of the first octet is unset) will be preferred over locally administered 
+MAC addresses, but with no other ordering guarantees.
 
-Changed in version 3.7: Universally administered MAC addresses are preferred over locally administered MAC addresses, since the former are guaranteed to be globally unique, while the latter are not.
+Changed in version 3.7: Universally administered MAC addresses are preferred over locally 
+administered MAC addresses, since the former are guaranteed to be globally unique, while the 
+latter are not.
 
 uuid.uuid1(node=None, clock_seq=None)
-Generate a UUID from a host ID, sequence number, and the current time. If node is not given, getnode() is used to obtain the hardware address. If clock_seq is given, it is used as the sequence number; otherwise a random 14-bit sequence number is chosen.
+Generate a UUID from a host ID, sequence number, and the current time. If node is not given, 
+getnode() is used to obtain the hardware address. If clock_seq is given, it is used as the sequence 
+number; otherwise a random 14-bit sequence number is chosen.
 
 uuid.uuid3(namespace, name)
-Generate a UUID based on the MD5 hash of a namespace identifier (which is a UUID) and a name (which is a string).
+Generate a UUID based on the MD5 hash of a namespace identifier (which is a UUID) and a 
+name (which is a string).
 
 uuid.uuid4()
 Generate a random UUID.
 
 uuid.uuid5(namespace, name)
-Generate a UUID based on the SHA-1 hash of a namespace identifier (which is a UUID) and a name (which is a string).
+Generate a UUID based on the SHA-1 hash of a namespace identifier (which is a UUID) and a name (which 
+is a string).
 
 The uuid module defines the following namespace identifiers for use with uuid3() or uuid5().
 
@@ -158,6 +147,10 @@ def prog1(keySub):
         keySub (str): this any word for generate on base uuid 
     """
     uuidSub = uuid.uuid3(uuid.NAMESPACE_DNS, keySub)
+    cprint(f"type uuid = {type(uuidSub)}" , 'red', attrs=['bold'])
+    cprint(f"Converter uuid to string = {str(uuidSub)}" , 'blue', attrs=['bold'])
+    print("="*100)
+    uuidSub = uuid.uuid3(uuid.RFC_4122, bytes(keySub, 'utf-8'))
     cprint(f"type uuid = {type(uuidSub)}" , 'red', attrs=['bold'])
     cprint(f"Converter uuid to string = {str(uuidSub)}" , 'blue', attrs=['bold'])
     
