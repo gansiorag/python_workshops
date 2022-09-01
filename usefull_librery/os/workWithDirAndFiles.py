@@ -52,7 +52,29 @@ def Path1():
     os.rmdir("folder")
     
     # удалить вложенные папки
-    os.removedirs("nested1/nested2/nested3")    
+    os.removedirs("nested1/nested2/nested3") 
+    
+    # walk Рекурсивное получение имен файлов в дереве каталогов.
+    # Функция walk() модуля os генерирует имена файлов в дереве каталогов, обходя дерево 
+    # сверху вниз или снизу вверх. Для каждого каталога в дереве с корнем в вершине каталога top, 
+    # включая саму вершину top, она выдает тройной кортеж (dirpath, dirnames, filenames).
+    # dirpath - это строка, путь к каталогу.
+    # dirnames - это список имен подкаталогов в dirpath, исключая особые символы '.' и '..'.
+    # filenames - это список имен файлов в dirpath (не-каталогов).
+    # top - строка, вершинa каталога,
+    # topdown=True - bool, направление обхода,
+    # onerror=None - функция, которая сообщает об ошибке,
+    # followlinks=False - bool, переходить ли по символическим ссылкам.
+    
+    top= os.getcwd()
+    top = top.replace(top.split('\\')[-1],'')
+    print(top)
+    rez = os.walk(top, topdown=True, onerror=None, followlinks=False)
+    for dd in rez:
+        cprint(dd, 'blue')
+        print()
+    
+    # os.unlink() method in Python is used to remove or delete a file path
     
     
 def Path2():
@@ -101,4 +123,4 @@ def Path2():
 if __name__ == '__main__':
     name=''
     Path1()
-    Path2()
+    #Path2()
