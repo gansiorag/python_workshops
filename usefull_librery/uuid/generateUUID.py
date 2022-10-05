@@ -162,7 +162,7 @@ def prog2():
     cprint(f'uuid.uuid1() =  {uuid.uuid1()}' , 'red', attrs=['bold'])
 
     # make a UUID using an MD5 hash of a namespace UUID and a name
-    #uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org')
+    # uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org')
     print()
     cprint(f"uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org') --> {uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org')}", 'green', attrs=['bold'])
 
