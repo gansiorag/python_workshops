@@ -53,11 +53,13 @@ def prog1():
         Эта функция вернет бесконечный итератор.
     """
     cc = itertools.count(10, 2)
+    print('Step 1 --- '*3)
     cprint(f'{next(cc)}' , 'red', attrs=['bold'])
     cprint(f'{next(cc)}' , 'red', attrs=['bold'])
     cprint(f'{next(cc)}' , 'red', attrs=['bold'])
     cprint(f'{next(cc)}' , 'red', attrs=['bold'])
     print()
+    print('Step 2 --- '*3)
     cprint('='*20, 'blue')
     print()
     l1=[5,15,25]
