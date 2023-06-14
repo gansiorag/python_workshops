@@ -1,5 +1,6 @@
 '''
- This module make 
+ This module make: read dataset from link - ftp.zakupki.gov.ru
+ use module subprocess. This module use commands of shell bash of linux/
     
 Athor: Gansior Alexander, gansior@gansior.ru, +79173383804
 Starting 2022/07/01
