@@ -1,5 +1,6 @@
 from typing import Dict
 
+
 class htype:
     DEFAULT = "generic"
     IMAGE = "image"
@@ -22,7 +23,7 @@ class htype:
     POINT_CLOUD = "point_cloud"
     POINT_CLOUD_CALIBRATION_MATRIX = "point_cloud.calibration_matrix"
     POLYGON = "polygon"
-    
+
 
 HTYPE_CONFIGURATIONS: Dict[str, Dict] = {
     htype.DEFAULT: {"dtype": None},
@@ -38,7 +39,8 @@ HTYPE_CONFIGURATIONS: Dict[str, Dict] = {
     htype.CLASS_LABEL: {
         "dtype": "uint32",
         "class_names": [],
-        "_info": ["class_names"],  # class_names should be stored in info, not meta
+        # class_names should be stored in info, not meta
+        "_info": ["class_names"],
         "_disable_temp_transform": False,
     },
     htype.BBOX: {"dtype": "float32", "coords": {}, "_info": ["coords"]},
@@ -66,12 +68,13 @@ HTYPE_CONFIGURATIONS: Dict[str, Dict] = {
     htype.POINT_CLOUD_CALIBRATION_MATRIX: {"dtype": "float32"},
     htype.POLYGON: {"dtype": "float32"},
 }
+
 for config in HTYPE_CONFIGURATIONS.values():
     print(config)
-print('<=================================>')    
+print('<=================================>')
 for config in HTYPE_CONFIGURATIONS:
     print(config)
-    
-print('<=================================>')    
+
+print('<=================================>')
 for config in HTYPE_CONFIGURATIONS:
     print(config, HTYPE_CONFIGURATIONS[config])
