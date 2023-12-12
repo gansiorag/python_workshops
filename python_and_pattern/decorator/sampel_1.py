@@ -10,7 +10,7 @@ def decor_one(func):
 
 @decor_one
 def print_hello():
-    print("Hello!!!!")
+    print("Hello!!!!", end=' ')
     return 'Alex!!!'
 
 
