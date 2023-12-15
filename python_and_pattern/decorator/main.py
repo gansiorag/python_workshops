@@ -27,9 +27,11 @@ cprint(os.getcwd(), 'green')
 path_prj = os.getcwd().split(NAME_PROJECT)[0] + NAME_PROJECT + '/'
 cprint(path_prj, 'blue')
 sys.path.append(path_prj)
-
-from fun1 import print_hello
-from fun2 import print_no
+try:
+    from fun1 import print_hello
+    from fun2 import print_no
+except Exception:
+    pass
 
 
 def prog1():
@@ -39,12 +41,14 @@ def prog1():
            ' << '+'='*20, 'red', attrs=['bold'])
     print_hello()
 
+
 def prog2():
     '''AI is creating summary for prog2
     '''
     cprint('='*20 + ' >> ' + inspect.stack()[0][0].f_code.co_name +
            ' << '+'='*20, 'red', attrs=['bold'])
     print_no()
+
 
 if __name__ == '__main__':
     NAME = ''
