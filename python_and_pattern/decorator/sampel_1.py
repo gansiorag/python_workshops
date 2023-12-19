@@ -1,4 +1,9 @@
 def decor_one(func):
+    """AI is creating summary for decor_one
+
+    Args:
+        func ([type]): [description]
+    """
     def inner():
         print()
         print('inner')
