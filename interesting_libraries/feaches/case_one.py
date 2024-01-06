@@ -1,7 +1,12 @@
+"""AI is creating summary for
+"""
+
 from typing import Dict
 
 
-class htype:
+class Htype:
+    """AI is creating summary for
+    """
     DEFAULT = "generic"
     IMAGE = "image"
     IMAGE_RGB = "image.rgb"
@@ -26,55 +31,58 @@ class htype:
 
 
 HTYPE_CONFIGURATIONS: Dict[str, Dict] = {
-    htype.DEFAULT: {"dtype": None},
-    htype.IMAGE: {
+    Htype.DEFAULT: {"dtype": None},
+    Htype.IMAGE: {
         "dtype": "uint8",
     },
-    htype.IMAGE_RGB: {
+    Htype.IMAGE_RGB: {
         "dtype": "uint8",
     },
-    htype.IMAGE_GRAY: {
+    Htype.IMAGE_GRAY: {
         "dtype": "uint8",
     },
-    htype.CLASS_LABEL: {
+    Htype.CLASS_LABEL: {
         "dtype": "uint32",
         "class_names": [],
         # class_names should be stored in info, not meta
         "_info": ["class_names"],
         "_disable_temp_transform": False,
     },
-    htype.BBOX: {"dtype": "float32", "coords": {}, "_info": ["coords"]},
-    htype.BBOX_3D: {"dtype": "float32", "coords": {}, "_info": ["coords"]},
-    htype.AUDIO: {"dtype": "float64"},
-    htype.VIDEO: {"dtype": "uint8"},
-    htype.BINARY_MASK: {
+    Htype.BBOX: {"dtype": "float32", "coords": {}, "_info": ["coords"]},
+    Htype.BBOX_3D: {"dtype": "float32", "coords": {}, "_info": ["coords"]},
+    Htype.AUDIO: {"dtype": "float64"},
+    Htype.VIDEO: {"dtype": "uint8"},
+    Htype.BINARY_MASK: {
         "dtype": "bool"
-    },  # TODO: pack numpy arrays to store bools as 1 bit instead of 1 byte
-    htype.INSTANCE_LABEL: {"dtype": "uint32"},
-    htype.SEGMENT_MASK: {
+    },
+    Htype.INSTANCE_LABEL: {"dtype": "uint32"},
+    Htype.SEGMENT_MASK: {
         "dtype": "uint32",
         "class_names": [],
         "_info": ["class_names"],
     },
-    htype.KEYPOINTS_COCO: {"dtype": "int32"},
-    htype.POINT: {"dtype": "int32"},
-    htype.JSON: {
+    Htype.KEYPOINTS_COCO: {"dtype": "int32"},
+    Htype.POINT: {"dtype": "int32"},
+    Htype.JSON: {
         "dtype": "Any",
     },
-    htype.LIST: {"dtype": "List"},
-    htype.TEXT: {"dtype": "str"},
-    htype.DICOM: {"sample_compression": "dcm"},
-    htype.POINT_CLOUD: {"sample_compression": "las"},
-    htype.POINT_CLOUD_CALIBRATION_MATRIX: {"dtype": "float32"},
-    htype.POLYGON: {"dtype": "float32"},
-}
+    Htype.LIST: {"dtype": "List"},
+    Htype.TEXT: {"dtype": "str"},
+    Htype.DICOM: {"sample_compression": "dcm"},
+    Htype.POINT_CLOUD: {"sample_compression": "las"},
+    Htype.POINT_CLOUD_CALIBRATION_MATRIX: {"dtype": "float32"},
+    Htype.POLYGON: {"dtype": "float32"}
+    }
 
 for config in HTYPE_CONFIGURATIONS.values():
     print(config)
+
 print('<=================================>')
+
 for config in HTYPE_CONFIGURATIONS:
     print(config)
 
 print('<=================================>')
+
 for config in HTYPE_CONFIGURATIONS:
     print(config, HTYPE_CONFIGURATIONS[config])
