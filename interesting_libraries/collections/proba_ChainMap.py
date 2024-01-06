@@ -1,11 +1,9 @@
-'''
- This module make 
-    
-Athor: Gansior Alexander, gansior@gansior.ru, +79173383804
-Starting 2022//
-Ending 2022//
+#  This module make 
 
-'''
+# Athor: Gansior Alexander, gansior@gansior.ru, +79173383804
+# Starting 2022//
+# Ending 2022//
+
 
 from collections import ChainMap
 import sys
@@ -13,16 +11,12 @@ import os
 from termcolor import cprint
 import inspect
 
-'''
-Text colors: grey red green yellow blue magenta cyan white
-Text highlights: on_grey on_red on_green on_yellow on_blue on_magenta on_cyan on_white
-Attributes: bold dark underline blink reverse concealed
-template --> cprint(f'{}' , 'red', attrs=['bold'])
-    
-    
-Shows which module is currently running
-cprint('='*20 + ' >> ' + inspect.stack()[0][0].f_code.co_name + ' << '+'='*20, 'red', attrs=['bold'])
-'''
+# Text colors: grey red green yellow blue magenta cyan white
+# Text highlights: on_grey on_red on_green on_yellow on_blue on_magenta on_cyan on_white
+# Attributes: bold dark underline blink reverse concealed
+# template --> cprint(f'{}' , 'red', attrs=['bold'])
+# Shows which module is currently running
+# cprint('='*20 + ' >> ' + inspect.stack()[0][0].f_code.co_name + ' << '+'='*20, 'red', attrs=['bold'])
 
 
 nameProjectStart = 'python_workshops'
@@ -33,6 +27,9 @@ sys.path.append(PathPrj)
 
 
 def prog1():
+    print()
+    cprint('='*20 + ' >> ' + inspect.stack()[0][0].f_code.co_name + ' << '+'='*20, 'red', attrs=['bold'])
+    print()
     baseline = {'music': 'bach', 'art': 'rembrandt'}
     adjustments = {'art': 'van gogh', 'opera': 'carmen'}
     dd = list(ChainMap(adjustments, baseline))
@@ -42,7 +39,9 @@ def prog1():
 
 
 def prog2():
-    pass
+    print()
+    cprint('='*20 + ' >> ' + inspect.stack()[0][0].f_code.co_name + ' << '+'='*20, 'red', attrs=['bold'])
+    print()
 
 
 if __name__ == '__main__':
