@@ -46,7 +46,7 @@ def download_video(video_url, save_path):
         print("Error: ", str(e))
 
 
-def prog2():
+def start_load():
     '''AI is creating summary for prog2
     '''
     print()
@@ -61,4 +61,4 @@ def prog2():
 
 if __name__ == '__main__':
     NAME = ''
-    prog2()
+    start_load()
