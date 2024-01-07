@@ -142,6 +142,7 @@ class CityGrid:
         for row in self.grid:
             print(" ".join(map(str, row)))
 
+
 if __name__ == "__main__":
     N, M = 10, 10
     city = CityGrid(N, M)
@@ -151,10 +152,10 @@ if __name__ == "__main__":
     city.place_minimum_towers(tower_range)
     city.visualize_grid(base_grid)
 
-
-    path = city.find_most_reliable_path(4,7)
+    path = city.find_most_reliable_path(4, 7)
     city.print_grid()
     print(city.towers)
     print(path)
 
     city.visualize_path(path)
+    
