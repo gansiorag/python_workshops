@@ -1,26 +1,27 @@
 import random
 import heapq
-
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
 
 class CityGrid:
-    def __init__(self, N, M):
-        self.N = N
-        self.M = M
-        self.grid = [[0 for _ in range(M)] for _ in range(N)]
+    """AI is creating summary for
+    """
+    def __init__(self, n, m):
+        self.n = n
+        self.m = m
+        self.grid = [[0 for _ in range(m)] for _ in range(n)]
         self.tower_range = 0
-        self.towers= {}
+        self.towers = {}
 
     def place_obstructed_blocks(self, coverage_threshold=0.3):
-        target_coverage = self.N * self.M * coverage_threshold
+        target_coverage = self.n * self.m * coverage_threshold
         obstructed_count = 0
 
         while obstructed_count < target_coverage:
-            row = random.randint(0, self.N - 1)
-            col = random.randint(0, self.M - 1)
+            row = random.randint(0, self.n - 1)
+            col = random.randint(0, self.m - 1)
 
             if self.grid[row][col] == 0:
                 self.grid[row][col] = 1
@@ -31,13 +32,16 @@ class CityGrid:
         self.tower_range = tower_range
         tower_id = len(self.towers) + 3
         self.towers[tower_id] = (row, col)
-        for i in range(max(0, row - self.tower_range), min(self.N, row + self.tower_range + 1)):
-            for j in range(max(0, col - self.tower_range), min(self.M, col + self.tower_range + 1)):
+        for i in range(max(0, row - self.tower_range),
+                       min(self.n, row + self.tower_range + 1)):
+            for j in range(max(0, col - self.tower_range),
+                           min(self.m, col + self.tower_range + 1)):
                 self.grid[i][j] = 2
         self.grid[row][col] = tower_id
 
     def place_minimum_towers(self, range_R):
-        uncovered_blocks = set((row, col) for row in range(self.N) for col in range(self.M) if self.grid[row][col] == 0)
+        uncovered_blocks = set((row, col) for row in range(self.n)
+                               for col in range(self.m) if self.grid[row][col] == 0)
         towers_placed = 0
 
         while uncovered_blocks:
@@ -45,16 +49,20 @@ class CityGrid:
             self.place_tower(row, col, range_R)
             towers_placed += 1
 
-            for i in range(max(0, row - range_R), min(self.N, row + range_R + 1)):
-                for j in range(max(0, col - range_R), min(self.M, col + range_R + 1)):
+            for i in range(max(0, row - range_R),
+                           min(self.n, row + range_R + 1)):
+                for j in range(max(0, col - range_R),
+                               min(self.m, col + range_R + 1)):
                     if (i, j) in uncovered_blocks:
                         uncovered_blocks.remove((i, j))
 
         return towers_placed
+
     def find_most_reliable_path(self, start_tower, end_tower):
         start_row, start_col = self.towers[start_tower]
         end_row, end_col = self.towers[end_tower]
-        distances = {(r, c): float('inf') for r in range(self.N) for c in range(self.M)}
+        distances = {(r, c): float('inf')
+                     for r in range(self.n) for c in range(self.m)}
         distances[(start_row, start_col)] = 0
         visited = set()
         previous_nodes = {}
@@ -81,9 +89,12 @@ class CityGrid:
                 visited.add((row, col))
 
                 # Explore neighbors within tower range
-                for i in range(max(0, row - self.tower_range - 1), min(self.N, row + self.tower_range + 2)):
-                    for j in range(max(0, col - self.tower_range - 1), min(self.M, col + self.tower_range + 2)):
-                        if self.grid[i][j] >= 3 and self.grid[i][j] != current_tower:
+                for i in range(max(0, row - self.tower_range - 1),
+                               min(self.n, row + self.tower_range + 2)):
+                    for j in range(max(0, col - self.tower_range - 1),
+                                   min(self.m, col + self.tower_range + 2)):
+                        if (self.grid[i][j] >= 3 and
+                            self.grid[i][j] != current_tower):
                             neighbor_distance = current_distance + 1
                             if neighbor_distance < distances[(i, j)]:
                                 distances[(i, j)] = neighbor_distance
@@ -92,10 +103,8 @@ class CityGrid:
         print("Не удалось проложить путь")
         return []
 
-
-
-    def visualize_grid(self, base_grid):
-        plt.figure(figsize=(self.M, self.N))
+    def visualize_grid(self):
+        plt.figure(figsize=(self.m, self.n))
 
         cmap = ListedColormap([(0.4, 0.1, 0.8),
                                (0.7, 0.1, 0.5),
@@ -106,17 +115,17 @@ class CityGrid:
 
         plt.imshow(self.grid, interpolation='none', cmap=cmap, norm=norm)
 
-        plt.colorbar(ticks=[0, 1, 2, 3], boundaries=bounds, format='%1i', 
+        plt.colorbar(ticks=[0, 1, 2, 3], boundaries=bounds, format='%1i',
                      orientation='vertical')
 
-        plt.xticks(np.arange(-0.5, self.M, 1), [])
-        plt.yticks(np.arange(-0.5, self.N, 1), [])
+        plt.xticks(np.arange(-0.5, self.m, 1), [])
+        plt.yticks(np.arange(-0.5, self.n, 1), [])
         plt.grid(color='black', linewidth=1)
 
         plt.show()
 
     def visualize_path(self, path):
-        plt.figure(figsize=(self.M, self.N))
+        plt.figure(figsize=(self.m, self.n))
 
         cmap = ListedColormap([(0.4, 0.1, 0.8),
                                (0.7, 0.1, 0.5),
@@ -129,12 +138,14 @@ class CityGrid:
 
         for step, (i, j) in enumerate(path, start=1):
             plt.plot(j, i, marker='o', markersize=30, color='red')
-            plt.text(j, i, str(step), ha='center', va='center', color='white', fontsize=30)
+            plt.text(j, i, str(step), ha='center',
+                     va='center', color='white', fontsize=30)
 
-        plt.colorbar(ticks=[0, 1, 2, 3], boundaries=bounds, format='%1i', orientation='vertical')
+        plt.colorbar(ticks=[0, 1, 2, 3], boundaries=bounds,
+                     format='%1i', orientation='vertical')
 
-        plt.xticks(np.arange(-0.5, self.M, 1), [])
-        plt.yticks(np.arange(-0.5, self.N, 1), [])
+        plt.xticks(np.arange(-0.5, self.m, 1), [])
+        plt.yticks(np.arange(-0.5, self.n, 1), [])
         plt.grid(color='black', linewidth=1)
         plt.show()
 
@@ -146,16 +157,15 @@ class CityGrid:
 if __name__ == "__main__":
     N, M = 10, 10
     city = CityGrid(N, M)
-    base_grid = city.place_obstructed_blocks()
-    city.visualize_grid(base_grid)
-    tower_range = 1
-    city.place_minimum_towers(tower_range)
-    city.visualize_grid(base_grid)
+    BASE_GRID = city.place_obstructed_blocks()
+    city.visualize_grid()
+    TOWER_RANGE_S = 1
+    city.place_minimum_towers(TOWER_RANGE_S)
+    city.visualize_grid()
 
-    path = city.find_most_reliable_path(4, 7)
+    PATH = city.find_most_reliable_path(4, 7)
     city.print_grid()
     print(city.towers)
-    print(path)
+    print(PATH)
 
-    city.visualize_path(path)
-    
+    city.visualize_path(PATH)
