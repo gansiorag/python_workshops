@@ -54,9 +54,6 @@ e.t.
         hour = serv_list[0:2]
         minut = serv_list[3:5]
         sek = serv_list[6:8]
-    print(hour)
-    print(minut)
-    print(sek)
     hour_int = int(hour) * 60 * 60
     minut_int = int(minut) * 60
     sek_int = int(sek)
