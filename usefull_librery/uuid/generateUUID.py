@@ -123,57 +123,57 @@ Reserved for Microsoft compatibility.
 
 uuid.RESERVED_FUTURE
 Reserved for future definition.
-   
+
 Athor: Gansior Alexander, gansior@gansior.ru, +79173383804
 Starting 2022/08/06
 Ending 2022/08/08
-    
-'''
-    
-from termcolor import cprint
-'''
-Text colors: grey red green yellow blue magenta cyan white
-Text highlights: on_grey on_red on_green on_yellow on_blue on_magenta on_cyan on_white
-Attributes: bold dark underline blink reverse concealed
-'''
 
+'''
 import uuid
-    
-    
+from termcolor import cprint
+
+# Text colors: grey red green yellow blue magenta cyan white
+# Text highlights: on_grey on_red on_green on_yellow on_blue on_magenta on_cyan on_white
+# Attributes: bold dark underline blink reverse concealed
+
+
 def prog1(keySub):
     """I generate uuid for use in database
 
     Args:
-        keySub (str): this any word for generate on base uuid 
+        keySub (str): this any word for generate on base uuid
     """
     uuidSub = uuid.uuid3(uuid.NAMESPACE_DNS, keySub)
-    cprint(f"type uuid = {type(uuidSub)}" , 'red', attrs=['bold'])
-    cprint(f"Converter uuid to string = {str(uuidSub)}" , 'blue', attrs=['bold'])
+    cprint(f"type uuid = {type(uuidSub)}", 'red', attrs=['bold'])
+    cprint(
+        f"Converter uuid to string = {str(uuidSub)}", 'blue', attrs=['bold'])
     print("="*100)
     uuidSub = uuid.uuid3(uuid.RFC_4122, bytes(keySub, 'utf-8'))
-    cprint(f"type uuid = {type(uuidSub)}" , 'red', attrs=['bold'])
-    cprint(f"Converter uuid to string = {str(uuidSub)}" , 'blue', attrs=['bold'])
-    
-    
+    cprint(f"type uuid = {type(uuidSub)}", 'red', attrs=['bold'])
+    cprint(
+        f"Converter uuid to string = {str(uuidSub)}", 'blue', attrs=['bold'])
+
+
 def prog2():
     # make a UUID based on the host ID and current time
-    #uuid.uuid1()
+    # uuid.uuid1()
     print()
-    cprint(f'uuid.uuid1() =  {uuid.uuid1()}' , 'red', attrs=['bold'])
+    cprint(f'uuid.uuid1() =  {uuid.uuid1()}', 'red', attrs=['bold'])
 
     # make a UUID using an MD5 hash of a namespace UUID and a name
     # uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org')
     print()
-    cprint(f"uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org') --> {uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org')}", 'green', attrs=['bold'])
+    cprint(f"uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org') --> {uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org')}",
+           'green', attrs=['bold'])
 
     # make a random UUID
-    #uuid.uuid4()
+    # uuid.uuid4()
     print()
     cprint(f'uuid.uuid4() {uuid.uuid4()}', 'yellow', attrs=['bold'])
 
     # make a UUID using a SHA-1 hash of a namespace UUID and a name
-    #uuid.uuid5(uuid.NAMESPACE_DNS, 'python.org')
-    #cprint(f'uuid {uui}')'886313e1-3b8a-5372-9b90-0c9aee199e5d')
+    # uuid.uuid5(uuid.NAMESPACE_DNS, 'python.org')
+    # cprint(f'uuid {uui}')'886313e1-3b8a-5372-9b90-0c9aee199e5d')
 
     # make a UUID from a string of hex digits (braces and hyphens ignored)
     print()
@@ -187,13 +187,13 @@ def prog2():
     # get the raw 16 bytes of the UUID
     print()
     cprint(f'x.bytes -->  {str(x.bytes)}', 'blue', attrs=['bold'])
-  
+
     # make a UUID from a 16-byte string
     # uuid.UUID(bytes=x.bytes)
     # cprint(f'uuid.UUID(bytes=x.bytes) --> {uuid.UUID(bytes=x.bytes)}')
-    
-    
+
+
 if __name__ == '__main__':
-    name='Any custom text'
+    name = 'BabaninaEA@it.mos.ru'.lower()
     prog1(name)
     prog2()
