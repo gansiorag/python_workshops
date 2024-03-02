@@ -68,7 +68,7 @@ e.t.
         else:
             year = int(date_str_l[2])
             month = int(date_str_l[1])
-            day = int(date_str_l[0])       
+            day = int(date_str_l[0])
     return year, month, day
 
 
