@@ -10,6 +10,7 @@ Ending v1/ 2024/02/10
 import os
 import sys
 from datetime import datetime as dt
+from datetime import timedelta, datetime
 import inspect
 from termcolor import cprint
 
@@ -72,10 +73,31 @@ e.t.
     return year, month, day
 
 
+def get_date_with_step(date_start: str, step_sek: int, date_gard: str):
+    """_summary_
+
+    Args:
+        date_start (str): _description_
+        step_sek (int): _description_
+        date_gard (str): _description_
+    """
+
+    date_start_d = dt.strptime(date_start, '%Y-%m-%d %H:%M:%S')
+    date_gard_d = dt.strptime(date_gard, '%Y-%m-%d %H:%M:%S')
+    time_del = timedelta(seconds=step_sek)
+    ss = 0
+    print(date_start_d)
+    while date_gard_d > date_start_d:
+        date_start_d = date_start_d + time_del
+        ss += 1
+    print(date_start_d)
+    print(date_gard_d)
+    print(ss)
+
+
 # part of demo and test
 if __name__ == '__main__':
 
-    # test hour_str_to_int(date_str: str)
     print(get_year_month_day_from_str('2011010'))
     print()
     print(get_year_month_day_from_str('2011-10-10'))
@@ -86,3 +108,4 @@ if __name__ == '__main__':
     print()
     print(get_year_month_day_from_str('2011/01/20'))
     print()
+    get_date_with_step('2024-02-18 01:21:09', 12, '2024-03-01 00:00:00')
