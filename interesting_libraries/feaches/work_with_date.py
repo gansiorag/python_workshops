@@ -10,7 +10,8 @@ Ending v1/ 2024/02/10
 import os
 import sys
 from datetime import datetime as dt
-from datetime import timedelta, datetime
+from datetime import timedelta
+import datetime
 import inspect
 from termcolor import cprint
 
@@ -95,17 +96,53 @@ def get_date_with_step(date_start: str, step_sek: int, date_gard: str):
     print(ss)
 
 
+def get_date_now(ddt='') -> dict:
+    """_summary_
+
+        return: {'year': '2024',
+        'month': '04',
+        'day': '03',
+        'month_name_full': 'April',
+        'month_name_short': 'Apr',
+        'day_name_full': 'Wednesday',
+        'day_name_short': 'Wed',
+        'day_n_in_week': '2'}
+    """
+
+    from datetime import datetime as dt
+
+    date_r = {}
+    if not ddt:
+        ddt = dt.now()
+    date_r['year'] = dt.strftime(ddt, '%Y')
+    date_r['month'] = dt.strftime(ddt, '%m')
+    date_r['month_name_full'] = dt.strftime(ddt, '%B')
+    date_r['month_name_short'] = dt.strftime(ddt, '%b')
+    date_r['day'] = dt.strftime(ddt, '%d')
+    date_r['day_name_full'] = dt.strftime(ddt, '%A')
+    date_r['day_name_short'] = dt.strftime(ddt, '%a')
+    date_r['day_n_in_week'] = str(ddt.weekday())
+    date_r['day_in_year'] = dt.strftime(ddt, '%j')
+    date_r['week_in_year'] = str(ddt.isocalendar().week)
+    date_r['quarter'] = f'{(ddt.month-1)//3+1}'
+    return date_r
+
+
 # part of demo and test
 if __name__ == '__main__':
 
-    print(get_year_month_day_from_str('2011010'))
+    # print(get_year_month_day_from_str('2011010'))
+    # print()
+    # print(get_year_month_day_from_str('2011-10-10'))
+    # print()
+    # print(get_year_month_day_from_str('10-10-2011'))
+    # print()
+    # print(get_year_month_day_from_str('2010:10-10'))
+    # print()
+    # print(get_year_month_day_from_str('2011/01/20'))
+    # print()
+    # get_date_with_step('2024-02-18 01:21:09', 12, '2024-03-01 00:00:00')
+    date_ra = get_date_now()
     print()
-    print(get_year_month_day_from_str('2011-10-10'))
+    print(date_ra)
     print()
-    print(get_year_month_day_from_str('10-10-2011'))
-    print()
-    print(get_year_month_day_from_str('2010:10-10'))
-    print()
-    print(get_year_month_day_from_str('2011/01/20'))
-    print()
-    get_date_with_step('2024-02-18 01:21:09', 12, '2024-03-01 00:00:00')
