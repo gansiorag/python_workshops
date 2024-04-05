@@ -54,8 +54,9 @@ def start_load():
            ' << '+'='*20, 'red', attrs=['bold'])
     print()
 
-    video_link = "https://www.youtube.com/watch?v=CU44hKLMg7k"
-    save_path = "/home/al/Projects_My/python_workshops/interesting_libraries/feaches/rezult_yotube/kafka/"
+    video_link = "https://www.youtube.com/watch?v=rGx1QNdYzvs&list=PLUaB-1hjhk8FE_XZ87vPPSfHqb6OcM0cF"
+    # save_path = "/home/al/Projects_My/python_workshops/interesting_libraries/feaches/rezult_yotube/data_analisis/"
+    save_path = "/home/gansiorag/MyParth/ProjectMy/python_workshops/interesting_libraries/feaches/rezult_youtube/data_analisis/bootcamp/"
     download_video(video_link, save_path)
 
 
