@@ -35,7 +35,7 @@ def use_stdout():
     sample_input = ['Hi', 'Hello from AskPython', 'exit']
     for ip in sample_input:
         # Prints to stdout
-        stdout_fileno.write(ip + '\n')
+        stdout_fileno.write(ip + '\n' + '!!!!')
     print()
     cprint('='*20 + ' >> END ' + inspect.stack()
            [0][0].f_code.co_name + ' << '+'='*20, 'red', attrs=['bold'])
