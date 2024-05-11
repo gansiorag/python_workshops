@@ -54,20 +54,22 @@ def start_load():
            ' << '+'='*20, 'red', attrs=['bold'])
     print()
 
-    video_link = "https://www.youtube.com/watch?v=VhSQCTlmy4w"
+    video_link = "https://www.youtube.com/watch?v=LQ6xumpMqIY"
     # save_path = "/hhttps://www.youtube.com/watch?v=Lwq6VgCfpBcome/al/Projects_My/python_workshops/"\
-    # "interesting_libraries/"\
+    # "interesting_materials/"\
     # "eaches/rezult_yotube/data_analisis/"
     # save_path = "/home/gansiorag/MyParth/ProjectMy/python_workshops/"\
-    #     "interesting_libraries/feaches/rezult_youtube/telegram_bot/"
+    #     "interesting_materials/feaches/rezult_youtube/telegram_bot/"
+    # save_path = "/home/al/Projects_My/python_workshops/"\
+    #     "interesting_materials/feaches/rezult_yotube/telegram_bot/CodeWriter/"
     save_path = "/home/al/Projects_My/python_workshops/"\
-        "interesting_libraries/feaches/rezult_yotube/telegram_bot/CodeWriter/"
+        "interesting_materials/feaches/rezult_yotube/ykassa/ipatov/"
     # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_libraries/feaches/rezult_yotube/telegram_bot/Фсоки/"
+    #     "interesting_materials/feaches/rezult_yotube/telegram_bot/Фсоки/"
     # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_libraries/feaches/rezult_yotube/SQLAlchemy/"
+    #     "interesting_materials/feaches/rezult_yotube/SQLAlchemy/"
     # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_libraries/feaches/rezult_yotube/video_cut/ShotCut/"
+    #     "interesting_materials/feaches/rezult_yotube/video_cut/ShotCut/"
     download_video(video_link, save_path)
 
 
