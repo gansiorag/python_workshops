@@ -11,7 +11,6 @@ import os
 import sys
 from datetime import datetime as dt
 from datetime import timedelta
-import datetime
 import inspect
 from termcolor import cprint
 
@@ -108,8 +107,6 @@ def get_date_now(ddt='') -> dict:
         'day_name_short': 'Wed',
         'day_n_in_week': '2'}
     """
-
-    from datetime import datetime as dt
 
     date_r = {}
     if not ddt:
