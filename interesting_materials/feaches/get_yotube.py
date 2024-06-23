@@ -54,7 +54,7 @@ def start_load():
            ' << '+'='*20, 'red', attrs=['bold'])
     print()
 
-    video_link = "https://www.youtube.com/watch?v=bYcbU8aQ2Js&t=286s"
+    video_link = "https://www.youtube.com/watch?v=u8LkCBVKKus"
     # save_path = "/hhttps://www.youtube.com/watch?v=Lwq6VgCfpBcome/al/Projects_My/python_workshops/"\
     # "interesting_materials/"\
     # "eaches/rezult_yotube/data_analisis/"
@@ -64,8 +64,10 @@ def start_load():
     #     "interesting_materials/feaches/rezult_yotube/telegram_bot/CodeWriter/"
     # save_path = "/home/al/Projects_My/python_workshops/"\
     #     "interesting_materials/feaches/rezult_yotube/ykassa/ipatov/"
+    # save_path = "/home/al/Projects_My/python_workshops/"\
+    #     "interesting_materials/feaches/rezult_yotube/robot_hand/"
     save_path = "/home/al/Projects_My/python_workshops/"\
-        "interesting_materials/feaches/rezult_yotube/robot_hand/"
+        "interesting_materials/feaches/rezult_yotube/dbt/"        
     # save_path = "/home/al/Projects_My/python_workshops/"\
     #     "interesting_materials/feaches/rezult_yotube/telegram_bot/Фсоки/"
     # save_path = "/home/al/Projects_My/python_workshops/"\
