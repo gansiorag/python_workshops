@@ -57,7 +57,7 @@ def use_stderr():
             # Catch all exceptions
         except Exception as err:
             stderr_fileno.write('Exception Occurred!\n')
-            stderr_fileno.write(err)
+            stderr_fileno.write(str(err) + '\n')
     print()
     cprint('='*20 + ' >> END ' + inspect.stack()
            [0][0].f_code.co_name + ' << '+'='*20, 'red', attrs=['bold'])
