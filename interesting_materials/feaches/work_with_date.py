@@ -116,6 +116,7 @@ def get_date_now(ddt='') -> dict:
     date_r['month_name_full'] = dt.strftime(ddt, '%B')
     date_r['month_name_short'] = dt.strftime(ddt, '%b')
     date_r['day'] = dt.strftime(ddt, '%d')
+    date_r['full_date'] = dt.strftime(ddt, '%Y-%m-%d')
     date_r['day_name_full'] = dt.strftime(ddt, '%A')
     date_r['day_name_short'] = dt.strftime(ddt, '%a')
     date_r['day_n_in_week'] = str(ddt.weekday())
@@ -141,5 +142,6 @@ if __name__ == '__main__':
     # get_date_with_step('2024-02-18 01:21:09', 12, '2024-03-01 00:00:00')
     date_ra = get_date_now()
     print()
-    print(date_ra)
+    for k in date_ra.keys():
+        print(k, date_ra[k], sep='  -->  ')
     print()
