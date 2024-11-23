@@ -37,6 +37,7 @@ def download_video(video_url, save_path):
     cprint('='*20 + ' >> ' + inspect.stack()[0][0].f_code.co_name +
            ' << '+'='*20, 'red', attrs=['bold'])
     print()
+
     try:
         yt = YouTube(video_url)
         video_stream = yt.streams.get_highest_resolution()
@@ -54,30 +55,8 @@ def start_load():
            ' << '+'='*20, 'red', attrs=['bold'])
     print()
 
-    video_link = "https://rutube.ru/video/af2341a123b30499d571d4c1c8df2b86/"
-    # save_path = "/hhttps://www.youtube.com/watch?v=Lwq6VgCfpBcome/al/Projects_My/python_workshops/"\
-    # "interesting_materials/"\
-    # "eaches/rezult_yotube/data_analisis/"
-    # save_path = "/home/gansiorag/MyParth/ProjectMy/python_workshops/"\
-    #     "interesting_materials/feaches/rezult_youtube/telegram_bot/"
-    # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_materials/feaches/rezult_yotube/telegram_bot/CodeWriter/"
-    # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_materials/feaches/rezult_yotube/ykassa/ipatov/"
-    # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_materials/feaches/rezult_yotube/robot_hand/"
-    # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_materials/feaches/rezult_yotube/dbt/"
-    # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_materials/feaches/rezult_yotube/hadoop"
-    save_path = "/home/al/Projects_My/python_workshops/"\
-        "interesting_materials/feaches/rezult_yotube/pyspark"
-    # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_materials/feaches/rezult_yotube/telegram_bot/Фсоки/"
-    # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_materials/feaches/rezult_yotube/SQLAlchemy/"
-    # save_path = "/home/al/Projects_My/python_workshops/"\
-    #     "interesting_materials/feaches/rezult_yotube/video_cut/ShotCut/"
+    video_link = "https://www.youtube.com/watch?v=wNRjR6Cds5s&list=PL2IsFZBGM_IHCl9zhRVC1EXTomkEp_1zm"
+    save_path = "/rezult_yotube/pyspark"
     download_video(video_link, save_path)
 
 
