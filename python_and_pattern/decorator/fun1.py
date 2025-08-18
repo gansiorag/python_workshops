@@ -11,3 +11,6 @@ def print_hello():
     """
     print("Hello!!!!", end=' ')
     return 'Alex!!!'
+
+if __name__ == "__main__":
+    print_hello()
