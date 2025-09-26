@@ -24,3 +24,6 @@ interesting_materials/feaches/separete_audio_from_video/output_audio.mp3
 interesting_materials/import_cikles/__pycache__/
 .venv_py/
 .py_venv/
+python_postgresql/__pycache__/config.cpython-312.pyc
+python_postgresql/dataset/adb_stat_dev.csv
+python_postgresql/config.py
