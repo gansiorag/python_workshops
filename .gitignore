@@ -23,3 +23,4 @@ interesting_materials/feaches/proba_youtube/config_gog.py
 interesting_materials/feaches/separete_audio_from_video/output_audio.mp3
 interesting_materials/import_cikles/__pycache__/
 .venv_py/
+.py_venv/
