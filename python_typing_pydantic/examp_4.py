@@ -1,6 +1,9 @@
 # Monitoring Pydantic with Logfire
 from datetime import datetime
-
+from typing import (Text, Any, Union, 
+                    List, Dict, Tuple, 
+                    Set, Optional,
+                    int, float)
 import logfire
 
 from pydantic import BaseModel
@@ -8,10 +11,15 @@ from pydantic import BaseModel
 logfire.configure()
 logfire.instrument_pydantic()  
 
+class Adress(BaseModel):
+    index: Text| Null
+    city: Text
+    dom: List| Dict
 
 class Delivery(BaseModel):
     timestamp: datetime
     dimensions: tuple[int, int]
+
 
 
 # this will record details of a successful validation to logfire
