@@ -2,8 +2,7 @@
 from datetime import datetime
 from typing import (Text, Any, Union, 
                     List, Dict, Tuple, 
-                    Set, Optional,
-                    int, float)
+                    Set, Optional)
 import logfire
 
 from pydantic import BaseModel
@@ -12,9 +11,9 @@ logfire.configure()
 logfire.instrument_pydantic()  
 
 class Adress(BaseModel):
-    index: Text| Null
-    city: Text
-    dom: List| Dict
+    index: Optional[Text] = None
+    city: Optional[Text] = None
+    dom: Optional[List| Dict] = None
 
 class Delivery(BaseModel):
     timestamp: datetime
@@ -29,4 +28,8 @@ print(repr(m.timestamp))
 print(m.dimensions)
 #> (10, 20)
 
-Delivery(timestamp='2020-01-02T03:04:05Z', dimensions=['10'])
+Delivery(timestamp='2020-01-02T03:04:05Z', dimensions=['10', '21'])
+
+add = Adress(index = '2356347', dom = {'street': 'Lenina', 'number': 23})
+
+print(add)
