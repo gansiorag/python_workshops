@@ -4,7 +4,7 @@
     
 Athor: Gansior Alexander, gansior@gansior.ru, +79173383804
 Starting 2022/07/01
-Ending 2022//
+Ending 2022/12/15
     
 '''
 
