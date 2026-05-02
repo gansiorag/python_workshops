@@ -27,3 +27,4 @@ interesting_materials/import_cikles/__pycache__/
 python_postgresql/__pycache__/config.cpython-312.pyc
 python_postgresql/dataset/adb_stat_dev.csv
 python_postgresql/config.py
+mortgage_schedule_10y.xlsx
