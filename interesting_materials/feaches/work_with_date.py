@@ -46,7 +46,8 @@ e.t.
         year, month, day
     """
     print()
-    cprint('='*20 + ' >> ' + inspect.stack()[0][0].f_code.co_name +
+    name_task = inspect.stack()[0][0].f_code.co_name
+    cprint('='*20 + ' >> ' + name_task +
            ' << '+'='*20, 'red', attrs=['bold'])
     print()
     year = 0
@@ -57,7 +58,7 @@ e.t.
         year = int(date_str[0:4])
         month = int(date_str[4:6])
         day = int(date_str[6:8])
-    if len(date_str) == 10:
+    elif len(date_str) == 10:
         date_str = date_str.replace(':', ' ').replace('/', ' ')
         date_str = date_str.replace('.', ' ').replace('-', ' ')
         print(date_str)
@@ -70,6 +71,9 @@ e.t.
             year = int(date_str_l[2])
             month = int(date_str_l[1])
             day = int(date_str_l[0])
+    elif len(date_str) != 10 and len(date_str) != 8:
+        cprint(name_task + '-  do not woker this format!!!', 'red', attrs=['bold'])
+        
     return year, month, day
 
 
@@ -81,7 +85,11 @@ def get_date_with_step(date_start: str, step_sek: int, date_gard: str):
         step_sek (int): _description_
         date_gard (str): _description_
     """
-
+    print()
+    name_task = inspect.stack()[0][0].f_code.co_name
+    cprint('='*20 + ' >> ' + name_task +
+           ' << '+'='*20, 'red', attrs=['bold'])
+    print()
     date_start_d = dt.strptime(date_start, '%Y-%m-%d %H:%M:%S')
     date_gard_d = dt.strptime(date_gard, '%Y-%m-%d %H:%M:%S')
     time_del = timedelta(seconds=step_sek)
@@ -107,7 +115,11 @@ def get_date_now(ddt='') -> dict:
         'day_name_short': 'Wed',
         'day_n_in_week': '2'}
     """
-
+    print()
+    name_task = inspect.stack()[0][0].f_code.co_name
+    cprint('='*20 + ' >> ' + name_task +
+           ' << '+'='*20, 'red', attrs=['bold'])
+    print()
     date_r = {}
     if not ddt:
         ddt = dt.now()
@@ -129,8 +141,8 @@ def get_date_now(ddt='') -> dict:
 # part of demo and test
 if __name__ == '__main__':
 
-    # print(get_year_month_day_from_str('2011010'))
-    # print()
+    print(get_year_month_day_from_str('20110110'))
+    print()
     # print(get_year_month_day_from_str('2011-10-10'))
     # print()
     # print(get_year_month_day_from_str('10-10-2011'))
