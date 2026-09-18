@@ -20,5 +20,5 @@ async def create_user(request):
     return JSONResponse({"status": "ok", "user": name})
 
 app = Starlette(routes=[
-    Route("/user", create_user, methods=["POST"]),
+    Route("/user", create_user, methods=["POST"])
 ])
